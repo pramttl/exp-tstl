@@ -42,8 +42,8 @@ village = 26
 
 class Game():
     numPlayers =2
-    supplyCount = [0] * MAX_CARDS
-    embargoTokens = [0] * MAX_CARDS
+    supplyCount = [-1] * MAX_CARDS
+    embargoTokens = [-1] * MAX_CARDS
     outpostPlayed = 0
     outpostTurn = 0
     whoseTurn = 0
@@ -142,6 +142,7 @@ def initializeGame(numPlayers, kingdomCards, randomSeed):
         drawCard(game.whoseTurn, game)
     updateCoins(game.whoseTurn, game, 0)
     return game
+
 def shuffle(player, g):
     if (g.deckCount[player] < 1):
         return -1

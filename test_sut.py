@@ -4,32 +4,42 @@ t = sut.t()
 
 from pprint import pprint
 
-def print_enabled():
+def penabled():
+    """
+    Print all enabled actions
+    """
     print
     print '===== enabled ====='
     print
-    for act_obj in t.enabled():
-        print act_obj[0]
+    for ctr, act_obj in enumerate(t.enabled()):
+        print "%s: %s"%(ctr, act_obj[0])
     print '-------------------'
 
 
-def print_all():
+def pall():
+    """
+    Print all actions
+    """
     print
     print '====all_actions===='
     print
-    for act_obj in t.actions():
-        print act_obj[0]
+    for ctr,act_obj in enumerate(t.actions()):
+        print "%s: %s"%(ctr, act_obj[0])
     print '-------------------'
 
-print_all()
-print_enabled()
+def takeact(index, enabled=True):
+    """
+    Take an enabled action via index.
+    """
+    if enabled:
+        print "Running:\n%s"%(t.enabled()[index][0],)
+        t.enabled()[index][2]()
+    else:
+        print "Running:\n%s"%(t.actions()[index][0],)
+        t.actions()[index][2]()
 
-print "Running t.enabled()[0][2]()"
-t.enabled()[0][2]()
+pall()
+penabled()
 
-print_enabled()
-
-t.enabled()[0][2]()
-
-print_enabled()
-g = t.p_GAME[0]
+takeact(0)
+takeact(0)

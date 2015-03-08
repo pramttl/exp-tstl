@@ -3,8 +3,12 @@
 @from mydominion.cardnames import *
 
 pool: %KINGDOM_CARDS% 1
-pool: %GAME% 1
+pool: %GAME% 1 REF
 
 %KINGDOM_CARDS% := [adventurer, ambassador, baron, council_room, cutpurse, embargo, feast, gardens, great_hall, mine]
 
-%GAME% := d1.initializeGame(2, %KINGDOM_CARDS%, 0)
+%GAME% := d1.initializeGame(2, %KINGDOM_CARDS%, 0) 
+
+reference: d1\.initializeGame\( ==> d2.initializeGame( 
+
+compare: initializeGame 
