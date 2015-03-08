@@ -6,12 +6,15 @@
 @g1 = d1.initializeGame(2, common_kingdom_cards, 0)
 @g2 = d2.initializeGame(2, common_kingdom_cards, 0)
 
-pool: %CARD% 1 REF
+pool: %CARD% 1
+pool: %GAME% 1 REF
 
 %CARD% := silver
+%GAME% := g1
 
-d1.buyCard(%CARD%, g1)
+d1.buyCard(%CARD%, %GAME%)
 
-reference:  d1\.buyCard\(([^,]+),\s?([^)]+)\) ==> d2.buyCard(\1, \2)
+reference: g1 ==> g2
+reference: d1.buyCard ==> d2.buyCard
 
 compare: buyCard
