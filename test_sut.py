@@ -28,3 +28,8 @@ print "Running t.enabled()[0][2]()"
 t.enabled()[0][2]()
 
 print_enabled()
+
+t.enabled()[0][2]()
+
+print_enabled()
+g = t.p_GAME[0]

@@ -1,11 +1,10 @@
-@import dominion as d
-@from cardnames import *
+@from mydominion import dominion as d1
+@from classmate_dominion import dominion as d2
+@from mydominion.cardnames import *
 
 pool: %KINGDOM_CARDS% 1
 pool: %GAME% 1
 
 %KINGDOM_CARDS% := [adventurer, ambassador, baron, council_room, cutpurse, embargo, feast, gardens, great_hall, mine]
 
-print %KINGDOM_CARDS%
-
-%GAME% := d.initializeGame(2, %KINGDOM_CARDS%, 0)
+%GAME% := d1.initializeGame(2, %KINGDOM_CARDS%, 0)
