@@ -1,14 +1,17 @@
 @from mydominion import dominion as d1
 @from classmate_dominion import dominion as d2
 @from mydominion.cardnames import *
+@common_kingdom_cards = [adventurer, ambassador, baron, council_room, cutpurse,
+@                        embargo, feast, gardens, great_hall, mine]
+@g1 = d1.initializeGame(2, common_kingdom_cards, 0)
+@g2 = d2.initializeGame(2, common_kingdom_cards, 0)
 
-pool: %KINGDOM_CARDS% 1
-pool: %GAME% 1 REF
+pool: %CARD% 1 REF
 
-%KINGDOM_CARDS% := [adventurer, ambassador, baron, council_room, cutpurse, embargo, feast, gardens, great_hall, mine]
+%CARD% := silver
 
-%GAME% := d1.initializeGame(2, %KINGDOM_CARDS%, 0) 
+d1.buyCard(%CARD%, g1)
 
-reference: d1\.initializeGame\( ==> d2.initializeGame( 
+reference:  d1\.buyCard\(([^,]+),\s?([^)]+)\) ==> d2.buyCard(\1, \2)
 
-compare: initializeGame 
+compare: buyCard

@@ -38,8 +38,15 @@ def takeact(index, enabled=True):
         print "Running:\n%s"%(t.actions()[index][0],)
         t.actions()[index][2]()
 
+def tp(index, enabled=True):
+    """
+    Take an enabled action and print enabled
+    """
+    takeact(index)
+    penabled()
+
 pall()
 penabled()
 
-takeact(0)
-takeact(0)
+tp(0)
+tp(0)
